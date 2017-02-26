@@ -2,11 +2,15 @@ $brand-primary: #e78200;
 $grey-1: rgb(40, 40, 39);
 $grey-2: #33332D;
 
+@import "mixins";
+
 body {
     background-color: #1b1b1b;
     color: #fff;
     background-color: #151515;
-    background-image: url(https://a.dilcdn.com/sw/background/bg_starsL-d39a0dc14ce4.jpg), url(https://a.dilcdn.com/sw/background/bg_starsR-6b43524f1ad3.jpg);
+    @include respond-min-width(sm) {
+        background-image: url(https://a.dilcdn.com/sw/background/bg_starsL-d39a0dc14ce4.jpg), url(https://a.dilcdn.com/sw/background/bg_starsR-6b43524f1ad3.jpg);
+    }
     background-position: top left, top right;
     background-repeat: repeat-y, repeat-y;
 }
@@ -28,6 +32,10 @@ h3 {
     &:after {
         display: none !important;
     }
+}
+
+.arrow-up:before {
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) $grey-2;
 }
 
 
@@ -54,6 +62,10 @@ h3 {
     .stats-col {
         background-color:  $grey-1 !important;
     }
+}
+
+.top-flat {
+    background-color: $brand-primary;
 }
 
 .icon-wrapper {
@@ -100,6 +112,10 @@ h3 {
     }
 }
 
+.well {
+    border-color: $grey-2;
+    background-color: $grey-1;
+}
 
 .breadcrumb-line {
     background-color: $grey-1;
@@ -117,4 +133,15 @@ h3 {
     }
 }
 
+.dropdown-menu {
+    background-color: $grey-1;
+    border-color: $grey-2;
+}
 
+.user-login-drop {
+    > li {
+        &:first-child {
+            background-color: $grey-2;
+        }
+    }
+}

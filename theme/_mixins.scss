@@ -1,0 +1,91 @@
+// Extra small screen / phone
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs:                  640px !default;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min:              $screen-xs !default;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  1024px !default;
+$screen-md-min:              $screen-md !default;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+
+$screen-lg:                  1280px !default;
+$screen-lg-min:              $screen-lg !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min !default;
+
+
+@mixin respond-min-width($media) {
+    @if $media == xs {
+        //select xs devices and up
+        @media only screen and (min-width: $screen-xs-min) { @content; }
+    }
+
+    @if $media == sm {
+        //select sm devices and up
+        @media only screen and (min-width: $screen-sm-min) { @content; }
+    }
+
+    @if $media == md {
+        //select md devices and up
+        @media only screen and (min-width: $screen-md-min) { @content; }
+    }
+
+    @if $media == lg {
+        //select lg devices and up
+        @media only screen and (min-width: $screen-lg-min) { @content; }
+    }
+}
+
+@mixin respond-max-width($media) {
+    @if $media == xs {
+        //select xs devices and up
+        @media only screen and (max-width: $screen-xs-max) { @content; }
+    }
+
+    @if $media == sm {
+        //select sm devices and up
+        @media only screen and (max-width: $screen-sm-max) { @content; }
+    }
+
+    @if $media == md {
+        //select md devices and up
+        @media only screen and (max-width: $screen-md-max) { @content; }
+    }
+}
+
+@mixin respond-at-width($media) {
+    @if $media == xs {
+        //select xs devices and up
+        @media only screen and (min-width: $screen-xs-min) and (max-width: $screen-xs-max) { @content; }
+    }
+
+    @if $media == sm {
+        //select sm devices and up
+        @media only screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { @content; }
+    }
+
+    @if $media == md {
+        //select md devices and up
+        @media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) { @content; }
+    }
+
+    @if $media == lg {
+        //select lg devices and up
+        @media only screen and (min-width: $screen-lg-min) { @content; }
+    }
+}
