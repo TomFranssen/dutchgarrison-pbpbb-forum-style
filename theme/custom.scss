@@ -145,3 +145,14 @@ h3 {
         }
     }
 }
+
+.panel-login {
+    background-color: $grey-1;
+    .signin-text {
+        span,
+        &:before {
+            background: $grey-2;
+        }
+    }
+
+}
