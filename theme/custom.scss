@@ -1,18 +1,119 @@
+$brand-primary: #e78200;
+$grey-1: rgb(40, 40, 39);
+$grey-2: #33332D;
+
 body {
     background-color: #1b1b1b;
+    color: #fff;
+    background-color: #151515;
+    background-image: url(https://a.dilcdn.com/sw/background/bg_starsL-d39a0dc14ce4.jpg), url(https://a.dilcdn.com/sw/background/bg_starsR-6b43524f1ad3.jpg);
+    background-position: top left, top right;
+    background-repeat: repeat-y, repeat-y;
 }
 
-.logo {
-    text-align: center;
-    padding: 20px 0;
-    img {
-        margin: 0 auto;
+a:link,
+a:visited,
+a {
+    color: $brand-primary;
+    &.btn-default {
+        border: 0;
+        border-color: #d6d9e0;
+        background-color: $brand-primary;
+        color: #000;
+    }
+}
+
+h3 {
+    border-color: $grey-1;
+    &:after {
+        display: none !important;
+    }
+}
+
+
+.table {
+    > thead {
+        > tr {
+            > th {
+                background: $grey-1;
+            }
+        }
+    }
+    > tbody {
+        > tr:focus,
+        > tr:hover,
+        > tr:nth-child(2n+1),
+        > tr {
+            td {
+                color: #aaa;
+                border-color: $grey-2;
+                background: $grey-1;
+            }
+        }
+    }
+    .stats-col {
+        background-color:  $grey-1 !important;
+    }
+}
+
+.icon-wrapper {
+    background: $grey-2;
+}
+
+.pagination {
+    .active,
+    > li {
+        > a:focus,
+        > a:hover,
+        > a {
+            border-width: 1px;
+            color: #fff;
+            background-color: $grey-1;
+            border-color: $grey-2;
+        }
+    }
+}
+
+.panel {
+    .panel-body {
+        background: $grey-1;
+    }
+}
+
+.navbar {
+    padding: 70px 0 50px;
+    .logo {
+        text-align: center;
+        padding: 20px 0;
+        position: absolute;
+        top: 0;
+        img {
+            margin: 0 auto;
+        }
     }
 }
 
 .panel-forum {
     .panel-heading {
-        background-color: #000;
+        background-color: $grey-1;
+        border-bottom: 4px solid $grey-2;
+    }
+}
+
+
+.breadcrumb-line {
+    background-color: $grey-1;
+    li {
+        a {
+            color: #fff;
+        }
+        &:first-child {
+            a {
+                background-color: $grey-1;
+                border-right: 1px solid rgba(255, 255, 255, .1);
+                margin-right: 5px;
+            }
+        }
     }
 }
 
