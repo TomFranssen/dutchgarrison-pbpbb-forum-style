@@ -9,7 +9,7 @@ body {
     color: #fff;
     background-color: #151515;
     @include respond-min-width(sm) {
-        background-image: url(https://a.dilcdn.com/sw/background/bg_starsL-d39a0dc14ce4.jpg), url(https://a.dilcdn.com/sw/background/bg_starsR-6b43524f1ad3.jpg);
+        background-image: url(images/stars-left.jpg), url(images/stars-right.jpg);
     }
     background-position: top left, top right;
     background-repeat: repeat-y, repeat-y;
@@ -92,6 +92,12 @@ h3 {
     }
 }
 
+.panel-post {
+    .panel-bottom {
+        background-color: transparent;
+    }
+}
+
 .navbar {
     padding: 70px 0 50px;
     .logo {
@@ -144,6 +150,13 @@ h3 {
             background-color: $grey-2;
         }
     }
+    .navbar-footer {
+        background-color: $grey-2;
+    }
+}
+
+.panel {
+    background-color: $grey-1;
 }
 
 .panel-login {
@@ -154,5 +167,12 @@ h3 {
             background: $grey-2;
         }
     }
+}
 
+.section-page {
+    background-color: $grey-1;
+}
+
+.blog-meta {
+    background-color: $brand-primary;
 }
