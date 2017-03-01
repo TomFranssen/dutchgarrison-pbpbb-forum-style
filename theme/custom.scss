@@ -320,7 +320,9 @@ i.forum-read {
 
 .postbody {
     .content {
-        font-size: 1.2em;
+        @include respond-min-width(sm) {
+            font-size: 1.2em;
+        }
         color: #fff;
     }
 }
@@ -333,4 +335,9 @@ i.forum-read {
 .control-label,
 .help-block {
     color: #fff;
+}
+
+.avatar-over img,
+.profile-avatar img {
+    border: 0;
 }
