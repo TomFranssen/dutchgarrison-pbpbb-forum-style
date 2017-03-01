@@ -1,29 +1,45 @@
 $brand-primary: #e78200;
+$brand-secondary: #00ade7;
+$grey-0: #151515;
 $grey-1: rgb(40, 40, 39);
 $grey-2: #33332D;
+$grey-3: hsla(0, 0%, 100%, 0.41);
 
 @import "mixins";
 
 body {
-    background-color: #1b1b1b;
     color: #fff;
-    background-color: #151515;
+    background-color: $grey-0;
     @include respond-min-width(sm) {
-        background-image: url(images/stars-left.jpg), url(images/stars-right.jpg);
+        background-image: url(images/dutchgarrison/stars-left.jpg), url(images/dutchgarrison/stars-right.jpg);
     }
     background-position: top left, top right;
     background-repeat: repeat-y, repeat-y;
+    background-attachment: fixed;
 }
 
+button,
 a:link,
 a:visited,
 a {
     color: $brand-primary;
-    &.btn-default {
-        border: 0;
-        border-color: #d6d9e0;
-        background-color: $brand-primary;
-        color: #000;
+    &.btn-default,
+    &.btn-primary {
+        &,
+        &:active:focus,
+        &:focus,
+        &:active,
+        &:hover {
+            border: 0;
+            border-color: #d6d9e0;
+            background-color: $brand-primary;
+            color: #000 !important;
+        }
+        &:focus,
+        &:active,
+        &:hover {
+            background-color: lighten($brand-primary, 10%);
+        }
     }
 }
 
@@ -31,6 +47,57 @@ h3 {
     border-color: $grey-1;
     &:after {
         display: none !important;
+    }
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.content {
+    blockquote {
+        background-color: $grey-2;
+        &:before,
+        &:after {
+            color: $grey-1;
+        }
+    }
+}
+
+.masthead {
+    animation-name: none;
+    background: url(images/dutchgarrison/strand02.jpg);
+    background-size: 100%;
+    background-position: 0 -421px;
+    &:before {
+        display: none;
+    }
+}
+
+.separator {
+    &:before {
+        background-color: $grey-2;
+    }
+    i {
+        display: none;
+        background: $grey-2;
+    }
+}
+
+.nav {
+    > li {
+        &.open a,
+        > a {
+            &:focus,
+            &:hover {
+                background-color: $grey-2;
+            }
+        }
     }
 }
 
@@ -87,6 +154,7 @@ h3 {
 }
 
 .panel {
+    border-color: $grey-2;
     .panel-body {
         background: $grey-1;
     }
@@ -98,17 +166,32 @@ h3 {
     }
 }
 
+header {
+    > .container {
+        position: relative;
+    }
+}
+
 .navbar {
     padding: 70px 0 50px;
     .logo {
+        width: calc(100% - 20px);
         text-align: center;
         padding: 20px 0;
         position: absolute;
-        top: 0;
+        top: -70px;
+        left: 0;
         img {
             margin: 0 auto;
+            @include respond-max-width(sm) {
+                width: 120px;
+            }
         }
     }
+}
+
+.panel-heading {
+    border-color: $grey-2;
 }
 
 .panel-forum {
@@ -169,10 +252,85 @@ h3 {
     }
 }
 
+.nav-tabs {
+    background-color: $grey-2;
+    > li {
+        &.active {
+            > a:hover,
+            > a {
+                background-color: $grey-1 !important;
+                color: #fff;
+            }
+        }
+    }
+}
+
 .section-page {
     background-color: $grey-1;
 }
 
 .blog-meta {
+    color: #000;
     background-color: $brand-primary;
+}
+
+.form-actions {
+    background-color: $grey-1;
+    border-color: $grey-2;
+}
+
+i.forum-read {
+    &:before {
+        display: none;
+    }
+    &:after {
+        @extend .fa;
+        content: '\f1d1';
+        font-size: 50px;
+        color: $grey-1;
+    }
+}
+
+.forum-unread {
+    &:before {
+        display: none;
+    }
+    &:after {
+        @extend .fa;
+        content: '\f1d1';
+        font-size: 50px;
+        color: $brand-secondary;
+    }
+}
+
+.panel-footer {
+    background-color: $grey-1;
+    border-color: $grey-2;
+}
+
+.side-segment {
+    h3 {
+        border-color: $grey-2 !important;
+    }
+}
+
+.post-signature {
+    color: $grey-3;
+}
+
+.postbody {
+    .content {
+        font-size: 1.2em;
+        color: #fff;
+    }
+}
+
+.mobile-post,
+.footable-toggle {
+    background: $grey-2 !important;
+}
+
+.control-label,
+.help-block {
+    color: #fff;
 }
