@@ -1,11 +1,15 @@
 $brand-primary: #e78200;
-$brand-secondary: #00ade7;
+$brand-secondary: #e13427;
 $grey-0: #151515;
 $grey-1: rgb(40, 40, 39);
 $grey-2: #33332D;
 $grey-3: hsla(0, 0%, 100%, 0.41);
 
 @import "mixins";
+
+.flat-header {
+    //display: none;
+}
 
 body {
     color: #fff;
@@ -18,11 +22,70 @@ body {
     background-attachment: fixed;
 }
 
+h3 {
+    color: #fff;
+}
+
+.burned-asphalt {
+    background-color: $grey-2;
+}
+
+.debug-output,
+.copyrights {
+    display: none;
+}
+
+.attachbox,
+.alert-default {
+    color: #fff;
+    background-color: $grey-1;
+    border-color: $grey-2;
+}
+
+.alert_title {
+    border-color: $grey-2;
+}
+
+.noti-bubble {
+    &:before,
+    &:after {
+        border-color: $grey-2 rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+}
+
+.no_notifications {
+    i {
+        color: $grey-2;
+    }
+}
+
+.form-control {
+    background: $grey-1;
+    border-color: $grey-2;
+    color: #fff;
+    &:focus {
+        border-color: #fff;
+        + .fa {
+            color: #fff !important;
+        }
+    }
+}
+
+
+.btn.focus, .btn:focus, .btn:hover
+
+.btn,
+input,
 button,
 a:link,
 a:visited,
 a {
     color: $brand-primary;
+    &.focus,
+    &:focus,
+    &:hover {
+        color: $brand-primary;
+    }
     &.btn-default,
     &.btn-primary {
         &,
@@ -43,6 +106,16 @@ a {
     }
 }
 
+.bootstrap-select .btn:focus,
+button:focus,
+a:focus,
+input[type=checkbox]:focus,
+input[type=file]:focus,
+input[type=radio]:focus {
+    outline: 1px auto #000 !important;
+}
+
+
 h3 {
     border-color: $grey-1;
     &:after {
@@ -50,9 +123,17 @@ h3 {
     }
 }
 
+.navbar-nav-fancy {
+    > li {
+        &:before {
+            display: none;
+        }
+    }
+}
+
 .fa {
     display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
+    font-family: FontAwesome;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
@@ -68,6 +149,20 @@ h3 {
         }
     }
 }
+
+.mini-timeline {
+    > li {
+        .timeline-body {
+            background-color: $grey-1;
+            .timeline-content {
+                a.name {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
 
 .masthead {
     animation-name: none;
@@ -157,10 +252,12 @@ h3 {
     border-color: $grey-2;
     .panel-body {
         background: $grey-1;
+        border-color: $grey-2 !important;
     }
 }
 
 .panel-post {
+    max-height: 1000px;
     .panel-bottom {
         background-color: transparent;
     }
@@ -172,8 +269,19 @@ header {
     }
 }
 
+.lines {
+    &,
+    &:before,
+    &:after {
+        transition: none !important;
+    }
+}
+
 .navbar {
     padding: 70px 0 50px;
+    @include respond-max-width(sm) {
+        padding-top: 40px;
+    }
     .logo {
         width: calc(100% - 20px);
         text-align: center;
@@ -181,24 +289,74 @@ header {
         position: absolute;
         top: -70px;
         left: 0;
+        @include respond-max-width(sm) {
+            top: -40px;
+            width: 100%;
+        }
         img {
             margin: 0 auto;
             @include respond-max-width(sm) {
-                width: 120px;
+                width: 80px;
             }
         }
     }
 }
 
+.navbar-collapse {
+    @include respond-max-width(sm) {
+        margin-top: 30px;
+    }
+}
+
+
+
+.panel-default > .panel-heading,
 .panel-heading {
     border-color: $grey-2;
+    background-color: $grey-1;
+    color: #fff;
 }
 
 .panel-forum {
     .panel-heading {
+        height: 44px;
+        font-size: 20px;
         background-color: $grey-1;
         border-bottom: 4px solid $grey-2;
     }
+}
+
+.mini-profile-contact {
+    li {
+        a {
+            &.default-contact {
+                background-color: $grey-2;
+            }
+        }
+    }
+}
+
+.list-group-item {
+    background: $grey-1;
+    border-color: $grey-2;
+    &:focus,
+    &:hover {
+        background-color: $grey-1 !important;
+        border-color: $grey-2;
+        color: #fff !important;
+    }
+    &.active {
+        &,
+        :focus,
+        :hover {
+            background-color: $brand-primary !important;
+            border-color: lighten($brand-primary, 10%) !important;
+        }
+    }
+}
+
+.framed-ucp {
+    border-color: $grey-2;
 }
 
 .well {
@@ -222,9 +380,26 @@ header {
     }
 }
 
+.breadcrumb-buttons {
+    background-color: $grey-1;
+}
+
 .dropdown-menu {
     background-color: $grey-1;
     border-color: $grey-2;
+    .divider {
+        background-color: $grey-2
+    }
+    > li > a {
+        &:focus,
+        &:hover {
+            background-color: $brand-primary;
+            &,
+            i {
+                color: #fff;
+            }
+        }
+    }
 }
 
 .user-login-drop {
@@ -243,6 +418,7 @@ header {
 }
 
 .panel-login {
+    padding: 20px;
     background-color: $grey-1;
     .signin-text {
         span,
@@ -320,10 +496,17 @@ i.forum-read {
 
 .postbody {
     .content {
+        color: #fff;
         @include respond-min-width(sm) {
             font-size: 1.2em;
         }
-        color: #fff;
+        iframe {
+            width: 100% !important;
+            border: 1px solid $grey-2;
+            &[data-sitesplat-mediaembed] {
+                background: #fff;
+            }
+        }
     }
 }
 
@@ -337,7 +520,74 @@ i.forum-read {
     color: #fff;
 }
 
+#topicreview h3,
+.section-mcp h3,
+.section-posting h3,
+.section-ucp h3 {
+    border-color: $grey-2;
+}
+
+.navbar-avatar {
+    img {
+        height: auto;
+    }
+}
+
+.dropdown-avatar {
+    img {
+        border-radius: 0;
+        border: 0;
+    }
+}
+
 .avatar-over img,
 .profile-avatar img {
+    height: auto;
+    max-height: 1000px;
+    border-radius: 0;
+    &,
+    &.img-thumbnail {
+        border: 0;
+        background-color: $grey-2;
+        padding: 0;
+    }
+}
+
+img[src*=images\/smilies] {
+    width: 20px;
+    height: 20px;
+}
+
+.img-thumbnail {
     border: 0;
+    background-color: $grey-2;
+    padding: 0;
+    border-radius: 0 !important;
+}
+
+.modal-content {
+    background: $grey-1;
+    .icon-compass {
+        display: none;
+    }
+    .modal-header,
+    .modal-footer {
+        border-color: $grey-2;
+    }
+}
+
+.close {
+    opacity: 1;
+    color: #fff;
+    text-shadow: none;
+}
+
+.notification-content li,
+.notification-content>ul>li {
+    border-color: $grey-2;
+}
+
+.btn-search>i,
+.dropdown-notification>a i {
+    color: $brand-primary;
 }
