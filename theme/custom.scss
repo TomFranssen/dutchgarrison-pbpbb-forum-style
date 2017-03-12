@@ -26,8 +26,14 @@ h3 {
     color: #fff;
 }
 
+.login-form-icon {
+    border-color: $grey-2;
+    color: $grey-2;
+}
+
 .burned-asphalt {
-    background-color: $grey-2;
+    background-color: $grey-1;
+    border-top: 2px solid $grey-2;
 }
 
 .debug-output,
@@ -64,9 +70,9 @@ h3 {
     border-color: $grey-2;
     color: #fff;
     &:focus {
-        border-color: #fff;
+        border-color: $grey-3;
         + .fa {
-            color: #fff !important;
+            color: $grey-3 !important;
         }
     }
 }
@@ -266,11 +272,20 @@ header {
     }
 }
 
-.lines {
+.navbar-toggle {
+    &:focus,
     &,
-    &:before,
-    &:after {
-        transition: none !important;
+    &.open {
+        outline: none !important;
+        border: none;
+        padding: 2px 6px 16px;
+    }
+    .lines {
+        &,
+        &:before,
+        &:after {
+            transition: none !important;
+        }
     }
 }
 
@@ -278,6 +293,14 @@ header {
     padding: 70px 0 50px;
     @include respond-max-width(sm) {
         padding: 40px 0 0;
+        .dropdown-menu {
+            padding: 0;
+        }
+        li {
+            a {
+                border-bottom: 1px solid $grey-1;
+            }
+        }
 
     }
     .logo {
@@ -438,8 +461,9 @@ header {
 }
 
 .panel-login {
+    background-color: transparent;
     padding: 20px;
-    background-color: $grey-1;
+    background: $grey-1;
     .signin-text {
         span,
         &:before {
@@ -623,4 +647,38 @@ img[src*=images\/smilies] {
     color: $brand-primary;
     margin: 0;
     font-size: 22px;
+}
+
+.youtube-color {
+    background: #b31217;
+}
+
+.instagram-color {
+    background:
+        /////// Use radial gradients to get the rounded
+        /////// gradient effect in each corner
+
+        // left bottom
+        radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+        radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+            // left top
+        radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+            //  right top
+        radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+            // right bottom
+        radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+
+            /////// create a base coat to smooth
+            /////// corner gradients
+        linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+
+    &:focus,
+    &:hover {
+        background: none;
+        background-color: #fff;
+    }
+
+
 }
