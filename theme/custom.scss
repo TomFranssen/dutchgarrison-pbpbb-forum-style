@@ -166,9 +166,6 @@ h3 {
 
 .masthead {
     animation-name: none;
-    background: url(images/dutchgarrison/strand02.jpg);
-    background-size: 100%;
-    background-position: 0 -421px;
     &:before {
         display: none;
     }
@@ -280,7 +277,8 @@ header {
 .navbar {
     padding: 70px 0 50px;
     @include respond-max-width(sm) {
-        padding-top: 40px;
+        padding: 40px 0 0;
+
     }
     .logo {
         width: calc(100% - 20px);
@@ -398,6 +396,28 @@ header {
             i {
                 color: #fff;
             }
+        }
+    }
+    &.user-search-drop {
+        min-width: 300px;
+        form {
+            padding: 1px 0 7px 0;
+        }
+        .search-heading {
+            display: none;
+        }
+        input[type=search] {
+            margin-left: 5px;
+            position: relative;
+            top: 2px;
+            width: 200px;
+            height: 36px;
+            border: 0;
+            padding: 0 10px;
+        }
+        input[type=submit] {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
         }
     }
 }
@@ -534,6 +554,13 @@ i.forum-read {
 }
 
 .dropdown-avatar {
+    > a {
+        > img {
+
+            width: 22px;
+            height: 30px;
+        }
+    }
     img {
         border-radius: 0;
         border: 0;
@@ -587,7 +614,13 @@ img[src*=images\/smilies] {
     border-color: $grey-2;
 }
 
+.btn-search {
+    margin-top: 0;
+}
+
 .btn-search>i,
 .dropdown-notification>a i {
     color: $brand-primary;
+    margin: 0;
+    font-size: 22px;
 }

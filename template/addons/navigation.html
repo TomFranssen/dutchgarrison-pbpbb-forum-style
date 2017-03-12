@@ -94,7 +94,22 @@
 	<div class="user-login hidden-xs">
 		<ul class="nav navbar-nav navbar-right navbar-nav-fancy">
 		<!-- EVENT navigation_controls_before -->
-		<li><a class="btn-search" href="javascript:void(0)"><i class="fa fa-search"></i></a></li>
+		<li>
+            <a class="btn-search" href="javascript:void(0)" data-toggle="dropdown">
+                <i class="fa fa-search"></i>
+                <ul class="dropdown-menu user-search-drop arrow-up">
+                    <li>
+                        <a class="search-heading">{L_SEARCH}</a>
+                        <form method="get" id="search" action="{U_SEARCH}">
+                            <fieldset>
+                                <input name="keywords" id="keywords" type="search" maxlength="128" title="{L_SEARCH_KEYWORDS}" placeholder="{L_SEARCH}" value="" autocomplete="off"/><input type="submit" value="{L_SEARCH}" class="btn btn-primary">
+                                {S_SEARCH_HIDDEN_FIELDS}
+                            </fieldset>
+                        </form>
+                    </li>
+                </ul>
+            </a>
+        </li>
 		<!-- EVENT navigation_controls_after -->
 		<!-- IF S_NOTIFICATIONS_DISPLAY -->	
 		    <li class="dropdown dropdown-avatar dropdown-notification">
