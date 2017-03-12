@@ -33,7 +33,7 @@ h3 {
 
 .burned-asphalt {
     background-color: $grey-1;
-    border-top: 2px solid $grey-2;
+    border-top: 4px solid $grey-2;
 }
 
 .debug-output,
@@ -507,7 +507,7 @@ i.forum-read {
         @extend .fa;
         content: '\f1d1';
         font-size: 50px;
-        color: $grey-1;
+        color: $grey-3;
     }
 }
 
