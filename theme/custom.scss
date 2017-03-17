@@ -22,6 +22,10 @@ body {
     background-attachment: fixed;
 }
 
+.jumbotron {
+    background-color:  $grey-2;
+}
+
 h3 {
     color: #fff;
 }
@@ -291,17 +295,18 @@ header {
 
 .navbar {
     padding: 70px 0 50px;
-    @include respond-max-width(sm) {
-        padding: 40px 0 0;
-        .dropdown-menu {
-            padding: 0;
-        }
+    @include respond-max-width(xs) {
         li {
             a {
                 border-bottom: 1px solid $grey-1;
             }
         }
-
+    }
+    @include respond-max-width(sm) {
+        padding: 40px 0 0;
+        .dropdown-menu {
+            padding: 0;
+        }
     }
     .logo {
         width: calc(100% - 20px);
@@ -318,6 +323,9 @@ header {
             margin: 0 auto;
             @include respond-max-width(sm) {
                 width: 80px;
+            }
+            @include respond-at-width(sm) {
+                margin-top: 25px;
             }
         }
     }
